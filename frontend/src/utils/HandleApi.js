@@ -6,7 +6,6 @@ const getToDoList = (setToDo) => {
     axios
         .get(dataBaseUrl)
         .then(({ data }) => {
-            console.log('data--> ', data);
             setToDo(data);
         });
 }
@@ -16,7 +15,6 @@ const addToDo = (e, text, setText, checked, setToDo) => {
     text.trim() && axios
         .post(`${dataBaseUrl}/add`, { text, checked })
         .then(data => {
-            console.log(data);
             setText('');
             getToDoList(setToDo);
         })
